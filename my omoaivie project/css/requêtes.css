@@ -1,0 +1,364 @@
+/* rem et em ne dépendent PAS de la taille de la police HTML dans les requêtes multimédias !
+Au lieu de cela, 1rem = 1em = 16px */
+/* Rem est la taille de la police racine */
+/* Em est essentiellement la taille de police actuelle */
+/* Il est préférable de em utiliser pour les requêtes Media */
+
+/* ******************************* */
+/* 1350 / 16 = 84 375*/
+/* donc 84em */
+/* 86*16 = 1344*/
+/* EN DESSOUS de 1344px (bureaux plus petits) */
+/* ******************************* */
+@media (max-width: 84em) {
+  .hero {
+    max-width: 120rem;
+  }
+
+  .rubrique-primaire {
+    font-size: 4.4rem;
+  }
+
+  .galerie {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ******************************* */
+/* 1200 / 16 = 75 */
+/* 75*16 = 1200 */
+/* donc 75em */
+/* EN DESSOUS DE 1200 px (tablettes de paysage)*/
+/* ******************************* */
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px = 0,5625 = 56.25% */
+    font-size: 56.25%;
+  }
+
+  .grille {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .rubrique-secondaire {
+    font-size: 3.6rem;
+  }
+
+  .rubrique-tertiaire {
+    font-size: 2.4rem;
+  }
+
+  .entête {
+    padding: 0 3.2rem;
+  }
+
+  .principale-nav-liste {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .récipient-des-témoignages {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/* ******************************* */
+/* 940 / 16 = 58,75 = 59em */
+/* 59 *16 = 944 */
+/* donc 59em */
+/* EN DESSOUS de 944 px (tablettes)*/
+/* ******************************* */
+
+@media (max-width: 59em) {
+  html {
+    /* 8px / 16px = 0,5 = 50% */
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+
+  .boîte-de-texte-hero,
+  .boîte-img-hero {
+    text-align: center;
+  }
+
+  .hero-img {
+    width: 60%;
+  }
+
+  .repas-livrés {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  .logos img {
+    height: 2.4rem;
+  }
+
+  .étape-numéro {
+    font-size: 7.4rem;
+  }
+
+  .contenu-repas {
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+  }
+
+  .section-témoignages {
+    grid-template-columns: 1fr;
+  }
+
+  .galerie {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .appel-à-l-action {
+    /* 3/5 = 60% + 2/5 = 40% */
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .formulaire-appel-à-l-action {
+    grid-template-columns: 1fr;
+  }
+
+  .formulaire--btn {
+    margin-top: 1.2rem;
+  }
+
+  /* NAVIGATION MOBILE */
+  .navigation-mobile-par-bouton {
+    display: block;
+    z-index: 9999;
+  }
+
+  .nav-principale {
+    background-color: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+
+    /* 1) Cachez-le visuellement */
+    opacity: 0;
+
+    /* 2) Le rendre inaccessible à la souris et au clavier */
+    pointer-events: none;
+
+    /* 3) Cachez-le des lecteurs d'écran */
+    visibility: hidden;
+  }
+
+  .ouvrir-la-navigation .nav-principale {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .ouvrir-la-navigation .icône-navigation-mobile[name="close-outline"] {
+    display: block;
+  }
+  .ouvrir-la-navigation .icône-navigation-mobile[name="menu-outline"] {
+    display: none;
+  }
+
+  .principale-nav-liste {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .lien-nav-principal:link,
+  .lien-nav-principal:visited {
+    font-size: 3rem;
+  }
+}
+
+/* ******************************* */
+/* 700px / 16px = 43,75 = 44em */
+/* 44 * 16 = 704px */
+/* Donc 44em */
+/* EN DESSOUS de 704px (tablettes plus petites) */
+/* ******************************* */
+
+@media (max-width: 44em) {
+  .grille--3-cols,
+  .grille--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .régimes {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .rubrique-secondaire {
+    margin-bottom: 4.8rem;
+  }
+
+  .plan-tarifaire {
+    width: 100%;
+  }
+
+  .grille--bas-de-page {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .colonne-de-logo,
+  .colonne-d-adresse {
+    grid-column: span 3;
+  }
+
+  .colonne-de-navigation {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+
+/* ******************************* */
+/* 550px / 16px = 34,375 = 34em */
+/* 34 * 16px = 544px */
+/* So 34em */
+/* EN DESSOUS de 544px (téléphones) */
+/* ******************************* */
+
+@media (max-width: 34em) {
+  .grille {
+    row-gap: 4.8rem;
+  }
+
+  .grille--2-cols,
+  .grille--3-cols,
+  .grille--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  .étape-img-boîte:nth-child(2) {
+    grid-row: 1;
+  }
+  .étape-img-boîte:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .étape-img-boîte {
+    transform: translateY(2.4rem);
+  }
+
+  .témoignages {
+    grid-template-columns: 1fr;
+  }
+
+  .galerie {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+
+  .appel-à-l-action {
+    grid-template-columns: 1fr;
+  }
+
+  .zone-de-texte-Appel-à-l-action {
+    padding: 3.2rem;
+  }
+
+  .boîte-img-Appel-à-l-action {
+    height: 32rem;
+    grid-row: 1;
+  }
+
+  .logo {
+    width: 19.8rem;
+  }
+}
+
+/* ******************************* */
+/* Correction de l'écart de la flexbox Safari */
+/* ******************************* */
+
+.no-flexbox-gap .principale-nav-liste li:not(:last-child) {
+  margin-right: 4.8rem;
+}
+
+.no-flexbox-gap .élément-de-liste:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.no-flexbox-gap .icône-de-liste:not(:last-child) {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .livrées-imgs {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .attribut-de-repas:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.no-flexbox-gap .icône-de-repas {
+  margin-right: 1.6rem;
+}
+
+.no-flexbox-gap .ligne-de-pied-de-page div:not(:last-child) {
+  margin-right: 6.4rem;
+}
+
+.no-flexbox-gap .liens-sociaux li:not(:last-child) {
+  margin-right: 2.4rem;
+}
+
+.no-flexbox-gap .navigation-de-bas-de-page li:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+
+@media (max-width: 75em) {
+  .no-flexbox-gap .principale-nav-liste li:not(:last-child) {
+    margin-right: 3.2rem;
+  }
+}
+
+@media (max-width: 59em) {
+  .no-flexbox-gap .principale-nav-liste li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4.8rem;
+  }
+}
